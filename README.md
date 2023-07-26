@@ -1,6 +1,6 @@
 # Let me introduce you to Flutter
 
-![Header image](images/header.png)
+![Header image](images/title_slide.png)
 
 A presentation from [plDroid 2023](https://pldroid.com/).
 
