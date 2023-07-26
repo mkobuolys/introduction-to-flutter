@@ -1,0 +1,39 @@
+name: introduction_to_flutter
+description: A new Flutter project.
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  auto_size_text: ^3.0.0
+  camera: ^0.10.5+2
+  flame: ^1.7.3
+  flutter:
+    sdk: flutter
+  flutter_card_swiper: ^5.1.0
+  flutter_deck: ^0.1.0
+  rive: ^0.11.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  very_good_analysis: ^5.0.0+1
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/images/case-studies/
+    - assets/images/history/
+    - assets/images/kits/
+    - assets/images/me/
+    - assets/images/platforms/
+    - assets/images/realtor/
+    - assets/rive/
+
+  shaders:
+    - shaders/water.glsl
