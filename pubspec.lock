@@ -138,10 +138,18 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_deck
-      sha256: "2d56b08966266d16078643bad0c4e53695ff4f25cd037e151ebcbd3a9bf01de4"
+      sha256: "70520c7e0d45bf07a2c6d1eef1d5217cf78b427db3dcde2d828cea65f66e71b9"
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.0+2"
+    version: "0.2.0"
+  flutter_highlight:
+    dependency: transitive
+    description:
+      name: flutter_highlight
+      sha256: "7b96333867aa07e122e245c033b8ad622e4e3a42a1a2372cbb098a2541d8782c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.7.0"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -176,6 +184,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.1"
+  highlight:
+    dependency: transitive
+    description:
+      name: highlight
+      sha256: "5353a83ffe3e3eca7df0abfb72dcf3fa66cc56b953728e7113ad4ad88497cf21"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.7.0"
   http:
     dependency: transitive
     description:
