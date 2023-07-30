@@ -2,9 +2,11 @@
 
 ![Header image](images/title_slide.png)
 
-A presentation from [plDroid 2023](https://pldroid.com/).
+A presentation from [plDroid 2023](https://pldroid.com/) 🤖
 
 Powered by [flutter_deck](https://pub.dev/packages/flutter_deck) 🚀
+
+Deployed on [kazlauskas.dev](https://kazlauskas.dev/introduction-to-flutter) 🎉
 
 ---
 
