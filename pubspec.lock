@@ -138,10 +138,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_deck
-      sha256: "70520c7e0d45bf07a2c6d1eef1d5217cf78b427db3dcde2d828cea65f66e71b9"
+      sha256: "54e4164c13aae295727e0037895f4c4ea430de60b3c73f9d9a849cf2299cda42"
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.0"
+    version: "0.3.0"
   flutter_highlight:
     dependency: transitive
     description:
