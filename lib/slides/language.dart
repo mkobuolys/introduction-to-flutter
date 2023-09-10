@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 
-class LanguageSlide extends FlutterDeckSplitSlide {
-  const LanguageSlide({super.key})
+class LanguageSlide extends FlutterDeckSlideWidget {
+  const LanguageSlide()
       : super(
           configuration: const FlutterDeckSlideConfiguration(
             route: '/dart',
@@ -12,23 +12,26 @@ class LanguageSlide extends FlutterDeckSplitSlide {
         );
 
   @override
-  Widget left(BuildContext context) {
-    return FlutterDeckBulletList(
-      useSteps: true,
-      items: const [
-        'Optimized for UI',
-        'JIT and AOT compilation',
-        'Sound null safety',
-        'Full-stack! 🤘',
-      ],
+  FlutterDeckSlide build(BuildContext context) {
+    return FlutterDeckSlide.split(
+      theme: FlutterDeckTheme.of(context).copyWith(
+        splitSlideTheme: const FlutterDeckSplitSlideThemeData(
+          rightBackgroundColor: Color(0xFFFFFFFF),
+        ),
+      ),
+      leftBuilder: (context) => FlutterDeckBulletList(
+        useSteps: true,
+        items: const [
+          'Optimized for UI',
+          'JIT and AOT compilation',
+          'Sound null safety',
+          'Full-stack! 🤘',
+        ],
+      ),
+      rightBuilder: (context) => Image.asset(
+        'assets/images/dart-meme.gif',
+        fit: BoxFit.contain,
+      ),
     );
   }
-
-  @override
-  Widget right(BuildContext context) {
-    return Image.asset('assets/images/dart-meme.gif', fit: BoxFit.contain);
-  }
-
-  @override
-  Color get rightBackgroundColor => const Color(0xFFFFFFFF);
 }

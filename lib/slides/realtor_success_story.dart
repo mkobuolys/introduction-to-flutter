@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 
-class RealtorSuccessStorySlide extends FlutterDeckBlankSlide {
-  const RealtorSuccessStorySlide({super.key})
+class RealtorSuccessStorySlide extends FlutterDeckSlideWidget {
+  const RealtorSuccessStorySlide()
       : super(
           configuration: const FlutterDeckSlideConfiguration(
             route: '/realtor-success-story',
@@ -15,7 +15,9 @@ class RealtorSuccessStorySlide extends FlutterDeckBlankSlide {
         );
 
   @override
-  Widget body(BuildContext context) => const _Content();
+  FlutterDeckSlide build(BuildContext context) {
+    return FlutterDeckSlide.blank(builder: (context) => const _Content());
+  }
 }
 
 const _imagePaths = [

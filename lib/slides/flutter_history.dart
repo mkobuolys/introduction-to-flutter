@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 
-class FlutterHistorySlide extends FlutterDeckBlankSlide {
-  const FlutterHistorySlide({super.key})
+class FlutterHistorySlide extends FlutterDeckSlideWidget {
+  const FlutterHistorySlide()
       : super(
           configuration: const FlutterDeckSlideConfiguration(
             route: '/flutter-history',
@@ -14,7 +14,11 @@ class FlutterHistorySlide extends FlutterDeckBlankSlide {
         );
 
   @override
-  Widget body(BuildContext context) => const _Content(showCameraCard: false);
+  FlutterDeckSlide build(BuildContext context) {
+    return FlutterDeckSlide.blank(
+      builder: (context) => const _Content(showCameraCard: false),
+    );
+  }
 }
 
 const _spacing = 64.0;
@@ -217,10 +221,11 @@ class _HistoryCardBase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const borderRadius = BorderRadius.all(Radius.circular(16));
+    final colorScheme = Theme.of(context).colorScheme;
 
     return Material(
       elevation: 8,
-      color: Theme.of(context).colorScheme.secondary,
+      color: colorScheme.secondary,
       borderRadius: borderRadius,
       child: ClipRRect(
         borderRadius: borderRadius,
@@ -233,10 +238,10 @@ class _HistoryCardBase extends StatelessWidget {
                 child: Center(
                   child: AutoSizeText(
                     text,
-                    style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                          color: Theme.of(context).colorScheme.onSecondary,
-                          height: 1.4,
-                        ),
+                    style: FlutterDeckTheme.of(context)
+                        .textTheme
+                        .title
+                        .copyWith(color: colorScheme.onSecondary, height: 1.4),
                     textAlign: TextAlign.center,
                     maxLines: 3,
                   ),

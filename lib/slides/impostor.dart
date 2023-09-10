@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 
-class ImpostorSlide extends FlutterDeckImageSlide {
-  const ImpostorSlide({super.key})
+class ImpostorSlide extends FlutterDeckSlideWidget {
+  const ImpostorSlide()
       : super(
           configuration: const FlutterDeckSlideConfiguration(
             route: '/impostor',
@@ -10,8 +10,12 @@ class ImpostorSlide extends FlutterDeckImageSlide {
         );
 
   @override
-  Image get image => Image.asset(
+  FlutterDeckSlide build(BuildContext context) {
+    return FlutterDeckSlide.image(
+      imageBuilder: (context) => Image.asset(
         'assets/images/impostor.png',
         fit: BoxFit.contain,
-      );
+      ),
+    );
+  }
 }

@@ -1,7 +1,8 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 
-class IntroSlide extends FlutterDeckTitleSlide {
-  const IntroSlide({super.key})
+class IntroSlide extends FlutterDeckSlideWidget {
+  const IntroSlide()
       : super(
           configuration: const FlutterDeckSlideConfiguration(
             route: '/intro',
@@ -10,5 +11,7 @@ class IntroSlide extends FlutterDeckTitleSlide {
         );
 
   @override
-  String get title => 'Let me introduce you to Flutter';
+  FlutterDeckSlide build(BuildContext context) {
+    return FlutterDeckSlide.title(title: 'Let me introduce you to Flutter');
+  }
 }

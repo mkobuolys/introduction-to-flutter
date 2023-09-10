@@ -15,8 +15,8 @@ const flutterFoundationalPillarsSlides = [
   PortableSlide(),
 ];
 
-class FlutterFoundationalPillars extends FlutterDeckImageSlide {
-  const FlutterFoundationalPillars({super.key})
+class FlutterFoundationalPillars extends FlutterDeckSlideWidget {
+  const FlutterFoundationalPillars()
       : super(
           configuration: const FlutterDeckSlideConfiguration(
             route: '/flutter-foundational-pillars',
@@ -24,8 +24,12 @@ class FlutterFoundationalPillars extends FlutterDeckImageSlide {
         );
 
   @override
-  Image get image => Image.asset(
+  FlutterDeckSlide build(BuildContext context) {
+    return FlutterDeckSlide.image(
+      imageBuilder: (context) => Image.asset(
         'assets/images/flutter-pillars.png',
         fit: BoxFit.contain,
-      );
+      ),
+    );
+  }
 }

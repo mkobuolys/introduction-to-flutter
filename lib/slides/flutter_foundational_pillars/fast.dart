@@ -4,8 +4,8 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 
-class FastSlide extends FlutterDeckSplitSlide {
-  const FastSlide({super.key})
+class FastSlide extends FlutterDeckSlideWidget {
+  const FastSlide()
       : super(
           configuration: const FlutterDeckSlideConfiguration(
             route: '/fast',
@@ -15,19 +15,19 @@ class FastSlide extends FlutterDeckSplitSlide {
         );
 
   @override
-  Widget left(BuildContext context) {
-    return FlutterDeckBulletList(
-      useSteps: true,
-      items: const [
-        'Aims for at least 60 FPS',
-        'Compiles to native code',
-        'Uses its own rendering engine',
-      ],
+  FlutterDeckSlide build(BuildContext context) {
+    return FlutterDeckSlide.split(
+      leftBuilder: (context) => FlutterDeckBulletList(
+        useSteps: true,
+        items: const [
+          'Aims for at least 60 FPS',
+          'Compiles to native code',
+          'Uses its own rendering engine',
+        ],
+      ),
+      rightBuilder: (context) => const _ContentRight(),
     );
   }
-
-  @override
-  Widget right(BuildContext context) => const _ContentRight();
 }
 
 class _ContentRight extends StatefulWidget {

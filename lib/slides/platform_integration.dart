@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 
-class PlatformIntegrationSlide extends FlutterDeckSplitSlide {
-  const PlatformIntegrationSlide({super.key})
+class PlatformIntegrationSlide extends FlutterDeckSlideWidget {
+  const PlatformIntegrationSlide()
       : super(
           configuration: const FlutterDeckSlideConfiguration(
             route: '/platform-integration',
@@ -13,22 +13,20 @@ class PlatformIntegrationSlide extends FlutterDeckSplitSlide {
         );
 
   @override
-  Widget left(BuildContext context) {
-    return FlutterDeckBulletList(
-      useSteps: true,
-      items: const [
-        'Platform channels',
-        'Federated plugins',
-        'FFIgen/JNIgen',
-      ],
-    );
-  }
-
-  @override
-  Widget right(BuildContext context) {
-    return Image.asset(
-      'assets/images/platform-channels.png',
-      fit: BoxFit.contain,
+  FlutterDeckSlide build(BuildContext context) {
+    return FlutterDeckSlide.split(
+      leftBuilder: (context) => FlutterDeckBulletList(
+        useSteps: true,
+        items: const [
+          'Platform channels',
+          'Federated plugins',
+          'FFIgen/JNIgen',
+        ],
+      ),
+      rightBuilder: (context) => Image.asset(
+        'assets/images/platform-channels.png',
+        fit: BoxFit.contain,
+      ),
     );
   }
 }

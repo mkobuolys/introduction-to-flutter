@@ -4,8 +4,8 @@ import 'package:introduction_to_flutter/widgets/widgets.dart';
 
 const _cardColor = Color(0xFFFFFFFF);
 
-class PortableSlide extends FlutterDeckSplitSlide {
-  const PortableSlide({super.key})
+class PortableSlide extends FlutterDeckSlideWidget {
+  const PortableSlide()
       : super(
           configuration: const FlutterDeckSlideConfiguration(
             route: '/portable',
@@ -15,33 +15,35 @@ class PortableSlide extends FlutterDeckSplitSlide {
         );
 
   @override
-  Widget left(BuildContext context) {
-    return FlutterDeckBulletList(
-      useSteps: true,
-      items: const [
-        '6 stable platforms + embedded',
-        'Adaptive UI components',
-        'Platform-specific APIs access',
-      ],
+  FlutterDeckSlide build(BuildContext context) {
+    return FlutterDeckSlide.split(
+      theme: FlutterDeckTheme.of(context).copyWith(
+        splitSlideTheme: const FlutterDeckSplitSlideThemeData(
+          rightBackgroundColor: _cardColor,
+        ),
+      ),
+      leftBuilder: (context) => FlutterDeckBulletList(
+        useSteps: true,
+        items: const [
+          '6 stable platforms + embedded',
+          'Adaptive UI components',
+          'Platform-specific APIs access',
+        ],
+      ),
+      rightBuilder: (context) {
+        const fit = BoxFit.contain;
+
+        return AutoSwipeCarousel(
+          duration: const Duration(seconds: 5),
+          cardColor: _cardColor,
+          children: [
+            Image.asset('assets/images/platforms/mobile.jpeg', fit: fit),
+            Image.asset('assets/images/platforms/web.jpeg', fit: fit),
+            Image.asset('assets/images/platforms/desktop.jpeg', fit: fit),
+            Image.asset('assets/images/platforms/embedded.jpeg', fit: fit),
+          ],
+        );
+      },
     );
   }
-
-  @override
-  Widget right(BuildContext context) {
-    const fit = BoxFit.contain;
-
-    return AutoSwipeCarousel(
-      duration: const Duration(seconds: 5),
-      cardColor: _cardColor,
-      children: [
-        Image.asset('assets/images/platforms/mobile.jpeg', fit: fit),
-        Image.asset('assets/images/platforms/web.jpeg', fit: fit),
-        Image.asset('assets/images/platforms/desktop.jpeg', fit: fit),
-        Image.asset('assets/images/platforms/embedded.jpeg', fit: fit),
-      ],
-    );
-  }
-
-  @override
-  Color get rightBackgroundColor => _cardColor;
 }

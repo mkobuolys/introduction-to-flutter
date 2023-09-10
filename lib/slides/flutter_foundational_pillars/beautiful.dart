@@ -4,8 +4,8 @@ import 'package:rive/rive.dart';
 
 const _backgroundColor = Color(0xffd6e2ea);
 
-class BeautifulSlide extends FlutterDeckSplitSlide {
-  const BeautifulSlide({super.key})
+class BeautifulSlide extends FlutterDeckSlideWidget {
+  const BeautifulSlide()
       : super(
           configuration: const FlutterDeckSlideConfiguration(
             route: '/beautiful',
@@ -15,22 +15,24 @@ class BeautifulSlide extends FlutterDeckSplitSlide {
         );
 
   @override
-  Widget left(BuildContext context) {
-    return FlutterDeckBulletList(
-      useSteps: true,
-      items: const [
-        'Control every pixel on the screen',
-        'Consistent look and feel across platforms',
-        'Motion creates emotion',
-      ],
+  FlutterDeckSlide build(BuildContext context) {
+    return FlutterDeckSlide.split(
+      theme: FlutterDeckTheme.of(context).copyWith(
+        splitSlideTheme: const FlutterDeckSplitSlideThemeData(
+          rightBackgroundColor: _backgroundColor,
+        ),
+      ),
+      leftBuilder: (context) => FlutterDeckBulletList(
+        useSteps: true,
+        items: const [
+          'Control every pixel on the screen',
+          'Consistent look and feel across platforms',
+          'Motion creates emotion',
+        ],
+      ),
+      rightBuilder: (context) => const _ContentRight(),
     );
   }
-
-  @override
-  Widget right(BuildContext context) => const _ContentRight();
-
-  @override
-  Color get rightBackgroundColor => _backgroundColor;
 }
 
 class _ContentRight extends StatefulWidget {

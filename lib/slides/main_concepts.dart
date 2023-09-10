@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 
-class MainConceptsSlide extends FlutterDeckSplitSlide {
-  const MainConceptsSlide({super.key})
+class MainConceptsSlide extends FlutterDeckSlideWidget {
+  const MainConceptsSlide()
       : super(
           configuration: const FlutterDeckSlideConfiguration(
             route: '/main-concepts',
@@ -12,22 +12,25 @@ class MainConceptsSlide extends FlutterDeckSplitSlide {
         );
 
   @override
-  Widget left(BuildContext context) {
-    return FlutterDeckBulletList(
-      useSteps: true,
-      items: const [
-        'Everything* is a widget',
-        'Aggressive composability',
-        'Reactive, pseudo-declarative UI',
-      ],
+  FlutterDeckSlide build(BuildContext context) {
+    return FlutterDeckSlide.split(
+      theme: FlutterDeckTheme.of(context).copyWith(
+        splitSlideTheme: const FlutterDeckSplitSlideThemeData(
+          rightBackgroundColor: Color(0xFFFFFFFF),
+        ),
+      ),
+      leftBuilder: (context) => FlutterDeckBulletList(
+        useSteps: true,
+        items: const [
+          'Everything* is a widget',
+          'Aggressive composability',
+          'Reactive, pseudo-declarative UI',
+        ],
+      ),
+      rightBuilder: (context) => Image.asset(
+        'assets/images/reactive-ui.gif',
+        fit: BoxFit.contain,
+      ),
     );
   }
-
-  @override
-  Widget right(BuildContext context) {
-    return Image.asset('assets/images/reactive-ui.gif', fit: BoxFit.contain);
-  }
-
-  @override
-  Color get rightBackgroundColor => const Color(0xFFFFFFFF);
 }

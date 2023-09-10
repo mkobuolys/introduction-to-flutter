@@ -1,7 +1,8 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 
-class ThankYouSlide extends FlutterDeckTitleSlide {
-  const ThankYouSlide({super.key})
+class ThankYouSlide extends FlutterDeckSlideWidget {
+  const ThankYouSlide()
       : super(
           configuration: const FlutterDeckSlideConfiguration(
             route: '/thank-you',
@@ -10,5 +11,9 @@ class ThankYouSlide extends FlutterDeckTitleSlide {
         );
 
   @override
-  String get title => 'Save trees. Stay SOLID. Thank you!';
+  FlutterDeckSlide build(BuildContext context) {
+    return FlutterDeckSlide.title(
+      title: 'Save trees. Stay SOLID. Thank you!',
+    );
+  }
 }
